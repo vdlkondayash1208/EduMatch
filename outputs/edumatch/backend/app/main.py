@@ -37,7 +37,7 @@ settings = get_settings()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.frontend_origins + ["http://127.0.0.1:5173", "http://localhost:5173"],
-    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1):\d+|https://.*\.github\.io",
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1):\d+|https://vdlkondayash1208\.github\.io",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
