@@ -17,9 +17,21 @@ import { CollegesPage, DiscoverPage, HomePage, MentorPage, NotFoundPage,  Platfo
 } from './pages/pages';
 import { api } from './lib/api';
 
+const BASE = import.meta.env.BASE_URL; // '/EduMatch/' — set by vite.config.js
+const BASE_REGEX = new RegExp(`^${BASE}`);
+
+function stripBase(url) {
+  const s = url.replace(BASE_REGEX, '');
+  return '/' + s || '/';
+}
+
+function fullUrl(rel) {
+  return BASE.replace(/\/$/, '') + rel;
+}
+
 function App(){
   const [menu,setMenu] = useState(false);
-  const [path,setPath] = useState(window.location.pathname);
+  const [path,setPath] = useState(stripBase(window.location.pathname));
   const [user,setUser] = useState(() => {
     try { return JSON.parse(localStorage.getItem('edumatch_user')) || null; }
     catch { return null; }
@@ -47,7 +59,7 @@ function App(){
       setAuthOpen(true);
       return;
     }
-    if (window.location.pathname !== next) window.history.pushState({},'',next);
+    if (stripBase(window.location.pathname) !== next) window.history.pushState({},'',fullUrl(next));
     setPath(next);
     window.scrollTo({top:0,behavior:'smooth'});
   };
@@ -70,7 +82,7 @@ function App(){
     setAuthOpen(false);
     const next = pendingPath || (path === '/' ? '/discover' : path);
     setPendingPath(null);
-    if (window.location.pathname !== next) window.history.pushState({},'',next);
+    if (stripBase(window.location.pathname) !== next) window.history.pushState({},'',fullUrl(next));
     setPath(next);
     window.scrollTo({top:0,behavior:'smooth'});
   };
@@ -93,7 +105,7 @@ function App(){
   },[]);
 
   useEffect(() => {
-    const onPop = () => setPath(window.location.pathname);
+    const onPop = () => setPath(stripBase(window.location.pathname));
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   },[]);
