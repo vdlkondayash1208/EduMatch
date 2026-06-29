@@ -1,0 +1,3 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/outputs/edumatch/backend/.venv/Scripts/python.exe"
+}
