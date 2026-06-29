@@ -35,14 +35,14 @@ import sanvithImg from '../Assets-/Sanvith.jpeg';
 import venkatImg from '../Assets-/venkat.jpeg';
 
 const team = [
-  { name: 'Varrodh', role: 'Team Leader & Technical Lead', initials: 'V', color: '#907cff', email: 'Varoodh711@gmail.com', image: varoodhImg },
-  { name: 'Sri Rohith', role: 'Frontend Developer', initials: 'SR', color: '#74e5ff', email: 'adnosesrirohit@gmail.com', image: rohithImg },
-  { name: 'Ram Shankar', role: 'Frontend Developer', initials: 'RS', color: '#c8ff79', email: 'konderiramshankar@gmail.com', image: ramImg },
-  { name: 'V. Yashwanth', role: 'Backend Developer', initials: 'VY', color: '#ff9f7c', email: 'vdlkondayash1208@gmail.com', image: yashwanthImg },
-  { name: 'Sri Ritin', role: 'Backend Developer', initials: 'SR', color: '#7cc5ff', email: 'Sririthin12@gmail.com', image: ritinImg },
-  { name: 'Shiva', role: 'Database Developer', initials: 'SH', color: '#d47cff', email: 'Mrshiva7541@gmail.com', image: shivaImg },
-  { name: 'Sanvith', role: 'Database Developer', initials: 'SA', color: '#ff8c8c', email: 'yadagirishanvith@gmail.com', image: sanvithImg },
-  { name: 'T. Venkat Reddy', role: 'Database Developer', initials: 'TV', color: '#7cffb0', email: 'thummetivenkat@gmail.com', image: venkatImg }
+  { name: 'Varrodh', role: 'Team Leader & Technical Lead', initials: 'V', color: '#907cff', email: 'Varoodh711@gmail.com', image: varoodhImg, linkedin: 'https://www.linkedin.com/in/varoodh-ganji-0b997636a/', instagram: 'https://www.instagram.com/varoodh.g/' },
+  { name: 'Sri Rohith', role: 'Frontend Developer', initials: 'SR', color: '#74e5ff', email: 'adnosesrirohit@gmail.com', image: rohithImg, linkedin: 'https://www.linkedin.com/in/adnose-srirohit-11836237b', instagram: 'https://www.instagram.com/srirohit07' },
+  { name: 'Ram Shankar', role: 'Frontend Developer', initials: 'RS', color: '#c8ff79', email: 'konderiramshankar@gmail.com', image: ramImg, linkedin: 'https://www.linkedin.com/in/thunderoops', instagram: 'https://www.instagram.com/ramslye' },
+  { name: 'V. Yashwanth', role: 'Backend Developer', initials: 'VY', color: '#ff9f7c', email: 'vdlkondayash1208@gmail.com', image: yashwanthImg, linkedin: 'https://www.linkedin.com/in/yashwanth-vadlakonda-a74454384/', instagram: 'https://www.instagram.com/yashwanth_yadav_1208/' },
+  { name: 'Sri Ritin', role: 'Backend Developer', initials: 'SR', color: '#7cc5ff', email: 'Sririthin12@gmail.com', image: ritinImg, linkedin: 'https://www.linkedin.com/in/sriritin-sudina-94b608360/', instagram: 'https://www.instagram.com/ritin.edits.exe/' },
+  { name: 'Shiva', role: 'Database Developer', initials: 'SH', color: '#d47cff', email: 'Mrshiva7541@gmail.com', image: shivaImg, linkedin: 'https://www.linkedin.com/in/shiva-yagati-543416390', instagram: 'https://www.instagram.com/shivx__9/' },
+  { name: 'Sanvith', role: 'Database Developer', initials: 'SA', color: '#ff8c8c', email: 'yadagirishanvith@gmail.com', image: sanvithImg, linkedin: 'https://www.linkedin.com/in/shanvith-rao-59380439b', instagram: 'https://www.instagram.com/_.shanvith._/' },
+  { name: 'T. Venkat Reddy', role: 'Database Developer', initials: 'TV', color: '#7cffb0', email: 'thummetivenkat@gmail.com', image: venkatImg, linkedin: 'https://www.linkedin.com/in/venkatreddy-thummeti-821345384', instagram: 'https://www.instagram.com/venkat_rdy_09/' }
 ];
 
 const highlights = [
@@ -163,10 +163,10 @@ function TeamCard({ member, index }) {
         <a href={`mailto:${member.email}`} className="team-social-icon" aria-label={`Email ${member.name}`}>
           <Mail size={14} />
         </a>
-        <a href="#" onClick={e => e.preventDefault()} className="team-social-icon" aria-label={`${member.name} LinkedIn`}>
+        <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="team-social-icon" aria-label={`${member.name} LinkedIn`}>
           <LinkedinIcon />
         </a>
-        <a href="#" onClick={e => e.preventDefault()} className="team-social-icon" aria-label={`${member.name} Instagram`}>
+        <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="team-social-icon" aria-label={`${member.name} Instagram`}>
           <InstagramIcon />
         </a>
       </div>
